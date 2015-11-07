@@ -8,7 +8,11 @@
 </head>
 <body>
 
+<div id="test_banner"></div>
+<header>Echocoin - <span>Transactions with a purpose</span></header>
+<div id="user"><%= @user.name %></div>
 <%= yield %>
+<footer>Copyright &copy;<%= Time.now.year %> Foo Bros.</footer>
 
 </body>
 </html>
