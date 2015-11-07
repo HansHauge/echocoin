@@ -1,19 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div id="prize_pools">
+        <h2>Current Prize Pools</h2>
+        <ol>
+          <li>Hourly => <%= @hourly.total %></li>
+          <li>Daily => <%= @daily.total %></li>
+          <li>Weekly => <%= @weekly.total %></li>
+          <li>Bi-Weekly => <%= @bi_weekly.total %></li>
+        </ol>
+      </div>
+    </div>
 
-<div id="prize_pools">
-  <ol>
-    <li>Daily</li>
-    <li>Weekly</li>
-    <li>Monthly</li>
-  </ol>
+    <div class="col-md-4">
+      <div id="transfer_form">Transfer form</div>
+    </div>
+
+    <div class="col-md-4">
+      <div id ="entries_feed">
+        <h2>Latest Winners</h2>
+        <ol>
+          <li>Blue Circle</li>
+          <li>Yellow Tranquility</li>
+        </ol>
+      </div>
+    </div>
+  </div>
 </div>
-
-<div id="transfer_form">Transfer form</div>
-
-<div id ="entries_feed">
-  <h2>Latest Winners</h2>
-  <ol>
-    <li>Blue Circle</li>
-    <li>Yellow Tranquility</li>
-  </ol>
-</div>
-

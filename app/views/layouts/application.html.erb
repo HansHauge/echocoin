@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Echocoin</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Roboto:400,900,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-</head>
-<body>
+  <head>
+    <title>Echocoin</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,900,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
 
-<div id="test_banner"></div>
-<header><span style="font-family: 'Roboto', sans-serif; font-size: 2rem">Echo</span><span style="font-family: 'Poiret One', cursive; font-size: 2rem;">coin</span> - <span>Transactions with a purpose</span></header>
-<div id="user"><%= @user.name %></div>
-<%= yield %>
-<footer>Copyright &copy;<%= Time.now.year %> Foo Bros.</footer>
+    <div id="test_banner"></div>
+    <header>
+      <span style="font-family: 'Roboto', sans-serif; font-size: 2rem">Echo</span>
+      <span style="font-family: 'Poiret One', cursive; font-size: 2rem;">coin</span> - <span>Transactions with a purpose</span>
+      <div id="user">User id: <%= @user.name %></div>
+    </header>
 
-</body>
+    <%= yield %>
+
+    <footer>Copyright &copy;<%= Time.now.year %> Foo Bros.</footer>
+
+  </body>
 </html>
