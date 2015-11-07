@@ -14,7 +14,7 @@
     <header>
       <span style="font-family: 'Roboto', sans-serif; font-size: 2rem">Echo</span>
       <span style="font-family: 'Poiret One', cursive; font-size: 2rem;">coin</span> - <span>Transactions with a purpose</span>
-      <div id="user">User id: <%= @user.name %></div>
+      <div id="user">User id: <%= @user.name %> | Balance: <%= @user.get_balance %></div>
     </header>
 
     <%= yield %>
