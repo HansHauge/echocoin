@@ -13,7 +13,10 @@
     <div id="test_banner">*** You are in Test Mode. No real bitcoins will be sent or received. ***</div>
 
     <header>
-    <div id="logo"><span>Echo</span><span>coin</span></div> - <span>Transactions with a purpose</span>
+      <div id="logo">
+       <%= link_to '/' do %>
+        <span>Echo</span><span>coin</span></div>
+      <% end %> - <span>Transactions with a purpose</span>
       <div id="user">User id: <%= @user.name %> | Balance: <%= @user.get_balance %></div>
     </header>
 
@@ -21,6 +24,8 @@
       <%= yield %>
     </div>
 
-    <footer>Copyright &copy;<%= Time.now.year %> Foo Bros., LLC</footer>
+    <footer>Copyright &copy;<%= Time.now.year %> Foo Bros., LLC
+      | <%= link_to 'Terms', terms_path %>
+    </footer>
   </body>
 </html>

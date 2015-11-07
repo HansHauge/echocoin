@@ -1,5 +1,9 @@
 class HomeController < ApplicationController
-  before_action :get_user, :get_prize_pools, :get_charities, :get_users, :get_entry, only: :show
+  before_action :get_prize_pools, :get_charities, :get_users, :get_entry, only: :show
+  before_action :get_user
+
+  def terms
+  end
 
   def show
   end
@@ -26,10 +30,6 @@ class HomeController < ApplicationController
 
   def get_prize_pools
     @prize_pools = PrizePool.all
-    # @bi_weekly = PrizePool.find_by_name('Bi-weekly')
-    # @weekly = PrizePool.find_by_name('Weekly')
-    # @daily = PrizePool.find_by_name('Daily')
-    # @hourly = PrizePool.find_by_name('Hourly')
   end
 
   def get_charities
@@ -49,6 +49,6 @@ class HomeController < ApplicationController
   end
 
   def entry_params
-    params.require(:entry).permit(:recipient, :total)
+    params.require(:entry).permit(:recipient, :total, :terms)
   end
 end
