@@ -1,0 +1,23 @@
+
+header {
+  border-bottom: 1px solid gray;
+  padding: 1.5rem;
+  margin: 0 auto;
+  max-width: 1200px;
+
+  #logo {
+    display: inline-block;
+
+    span:first-child {
+      font-family: 'Roboto', sans-serif;
+      font-size: 2rem;
+    }
+
+    span:nth-child(2) {
+      font-family: 'Poiret One', cursive;
+      font-size: 2rem;
+    }
+  }
+}
+
+

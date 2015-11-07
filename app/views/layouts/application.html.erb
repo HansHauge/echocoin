@@ -8,18 +8,19 @@
     <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,900,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
   </head>
-  <body>
 
-    <div id="test_banner"></div>
+  <body>
+    <div id="test_banner">*** You are in Test Mode. No real bitcoins will be sent or received. ***</div>
+
     <header>
-      <span style="font-family: 'Roboto', sans-serif; font-size: 2rem">Echo</span>
-      <span style="font-family: 'Poiret One', cursive; font-size: 2rem;">coin</span> - <span>Transactions with a purpose</span>
+    <div id="logo"><span>Echo</span><span>coin</span></div> - <span>Transactions with a purpose</span>
       <div id="user">User id: <%= @user.name %> | Balance: <%= @user.get_balance %></div>
     </header>
 
-    <%= yield %>
+    <div id="content">
+      <%= yield %>
+    </div>
 
-    <footer>Copyright &copy;<%= Time.now.year %> Foo Bros.</footer>
-
+    <footer>Copyright &copy;<%= Time.now.year %> Foo Bros., LLC</footer>
   </body>
 </html>
