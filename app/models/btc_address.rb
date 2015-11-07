@@ -1,4 +1,10 @@
 class BtcAddress
+
+  def self.create_with_no_coins
+    @bc = BtcRemote.connect
+    new_address = @bc.getnewaddress
+  end
+
   def self.create
     @bc = BtcRemote.connect
     new_address = @bc.getnewaddress

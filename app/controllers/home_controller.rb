@@ -25,10 +25,11 @@ class HomeController < ApplicationController
   end
 
   def get_prize_pools
-    @bi_weekly = PrizePool.find_by_name('Bi-weekly')
-    @weekly = PrizePool.find_by_name('Weekly')
-    @daily = PrizePool.find_by_name('Daily')
-    @hourly = PrizePool.find_by_name('Hourly')
+    @prize_pools = PrizePool.all
+    # @bi_weekly = PrizePool.find_by_name('Bi-weekly')
+    # @weekly = PrizePool.find_by_name('Weekly')
+    # @daily = PrizePool.find_by_name('Daily')
+    # @hourly = PrizePool.find_by_name('Hourly')
   end
 
   def get_charities
