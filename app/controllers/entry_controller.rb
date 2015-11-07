@@ -1,7 +1,12 @@
 class EntryController < ApplicationController
 
   def create
-    @entry = Entry.new(person_params)
+    @entry = Entry.new(entry_params)
+    if @entry.save
+      redirect_to '/', notice: 'You sent the loot!'
+    else
+      redirect_to '/'
+    end
   end
 
 private
