@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151107005539) do
+ActiveRecord::Schema.define(version: 20151107023902) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,10 +23,26 @@ ActiveRecord::Schema.define(version: 20151107005539) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "entries", force: :cascade do |t|
+    t.string   "recipient"
+    t.string   "sender"
+    t.float    "total"
+    t.integer  "charity_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "prize_pools", force: :cascade do |t|
     t.string   "name"
+    t.integer  "payout_frequency"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "users", force: :cascade do |t|
     t.string   "btc_address"
     t.string   "btc_passwd_digest"
+    t.string   "name"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end
