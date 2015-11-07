@@ -13,16 +13,49 @@
     </div>
 
     <div class="col-md-4">
-      <div id="transfer_form">Transfer form</div>
+      <div id="transfer_form">
+        <h2>Transfer Bitcoins</h2>
+        <%= form_for @entry, html: {class: "form-horizontal", role: "form"} do |f| %>
+          <div class="form-group">
+            <%= f.label :recipient %>:
+            <%= f.text_field :recipient, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :total %>:
+            <%= f.text_field :total, class: "form-control" %>
+          </div>
+
+          <%= f.submit "Send", class: "btn btn-default" %>
+        <% end %>
+
+        <h3>Pick a charity</h3>
+
+        <% @charities.each do |charity| %>
+          <label>
+            <%= radio_button_tag(:charity, charity.name, checked=(charity.name.eql?("Trump for President"))) %>
+            <%= charity.name %>
+          </label>
+          <br>
+        <% end %>
+      </div>
     </div>
 
     <div class="col-md-4">
       <div id ="entries_feed">
-        <h2>Latest Winners</h2>
+        <h2>Charity Donations to Date</h2>
         <ol>
-          <li>Blue Circle</li>
-          <li>Yellow Tranquility</li>
+          <% @charities.each do |charity| %>
+            <li><%= charity.name %> => 0.000</li>
+          <% end %>
         </ol>
+
+        <h2>Latest Winners</h2>
+          <ol>
+            <% @users.each do |user| %>
+              <li><%= user.name %></li>
+            <% end %>
+          </ol>
       </div>
     </div>
   </div>

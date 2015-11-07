@@ -6,6 +6,6 @@ class User < ActiveRecord::Base
   private
 
   def generate_name
-    update_attributes!(name: "#{SecureRandom.hex(32)}#{id}")
+    update_attributes!(name: "#{SecureRandom.hex(16)}#{id}")
   end
 end
