@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
     else
       update_attributes!(btc_address: @bc.getnewaddress)
       @bc.sendtoaddress(btc_address, 5.0)
-      @bc.generate(5)
+      @bc.generate(1)
       my_balance = 5.0
     end
 
