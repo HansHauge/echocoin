@@ -4,6 +4,20 @@ class HomeController < ApplicationController
   def show
   end
 
+  def create
+    @entry = Entry.new(entry_params)
+    if @entry.save
+      redirect_to '/', notice: 'You sent the loot!'
+    else
+      get_user
+      get_prize_pools
+      get_charities
+      get_users
+
+      render :show
+    end
+  end
+
   private
 
   def get_entry
@@ -31,5 +45,9 @@ class HomeController < ApplicationController
       @user = User.create
       session[:name] = @user.name
     end
+  end
+
+  def entry_params
+    params.require(:entry).permit(:recipient, :total)
   end
 end
