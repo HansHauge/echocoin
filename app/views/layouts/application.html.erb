@@ -24,8 +24,13 @@
       <%= yield %>
     </div>
 
-    <footer>Copyright &copy;<%= Time.now.year %> Foo Bros., LLC
-      | <%= link_to 'Terms', terms_path %>
+    <footer>
+      <span id="copyright">Copyright &copy;<%= Time.now.year %> Foo Bros., LLC</span>
+      <div id="links">
+        <%= link_to 'About', about_path %>
+        <span id="separator">|</span>
+        <%= link_to 'Terms', terms_path %>
+      </div>
     </footer>
   </body>
 </html>

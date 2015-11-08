@@ -3,6 +3,19 @@ footer {
   border-top: 1px solid gray;
   margin: 0 auto;
   max-width: 1200px;
+  overflow: auto;
   padding: 1.25rem;
   text-align: center;
+
+  #copyright {
+    float: left;
+  }
+
+  #links {
+    float: right;
+
+    #separator {
+      margin: 0 0.5rem;
+    }
+  }
 }
