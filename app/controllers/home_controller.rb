@@ -14,7 +14,7 @@ class HomeController < ApplicationController
   def create
     get_user
     @entry = Entry.new(entry_params)
-    # binding.pry
+
     if (@user.balance > (@entry.total.to_i * 1.016)) && @entry.save
       @user.transfer_bitcoins(@entry.recipient, @entry.total)
 
