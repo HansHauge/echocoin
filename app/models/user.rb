@@ -1,12 +1,12 @@
+
 class User < ActiveRecord::Base
-  after_create :generate_name
-#  after_create :generate_address
   before_create :initialize_balance
+  after_create  :generate_name
+  after_create  :generate_address
 
   validates :name, uniqueness: true
 
   def get_balance
-    #BtcBalance.new(btc_address).amount
     balance
   end
 
@@ -16,9 +16,9 @@ class User < ActiveRecord::Base
     self.balance = 5.0
   end
 
-#  def generate_address
-#    self.btc_address = BtcAddress.create_with_coins("User: #{self.name}")
-#  end
+  def generate_address
+    self.btc_address = BtcAddress.create_with_no_coins("User: #{self.name}")
+  end
 
   def generate_name
     update_attributes!(name: "#{SecureRandom.hex(16)}#{id}")

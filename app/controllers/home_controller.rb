@@ -48,9 +48,13 @@ class HomeController < ApplicationController
 
   def get_user
     @user = User.find_by_name session[:name]
+
     unless @user
       @user = User.create
       session[:name] = @user.name
+      @new_user = true
+    else
+      @new_user = false
     end
   end
 

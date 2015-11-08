@@ -71,3 +71,29 @@
     </div>
   </div>
 </div>
+
+<% if @new_user %>
+  <div id="welcome_user" class="will_be_modal" style="border: 2px solid red; padding: 1rem;">
+    <h1>Welcome new Echocoin user!</h1>
+
+    <p>
+      During the Rails Rumble, this site does not use real bitcoins and is operating in a simulation mode.
+    </p>
+
+    <p>
+      You will be able to simulate sending bitcoin to other users of the site
+      by selecting a bitcoin address from a dropdown menu.
+
+      Therefore, we are assigning you this test bitcoin address for use during judging.
+    </p>
+
+    <div class="bitcoin_address">
+      <%= @user.btc_address %>
+    </div>
+
+    <p>
+      This will display in the upper right as your user id. Other users of the site can send you
+      bitcoin and any prize pools that you win will be paid to this address.
+    </p>
+  </div>
+<% end %>
