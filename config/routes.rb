@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get '/terms' => 'home#terms'
   get '/about' => 'home#about'
   post '/' => 'home#create', as: 'entries'
+  get '/prize/jackpot' => 'prize#jackpot'
 end
