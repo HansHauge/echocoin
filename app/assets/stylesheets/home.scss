@@ -7,9 +7,13 @@
 }
 
 #user {
-  margin-top: 5px;
+  margin: 0.3rem 2rem 1rem 3rem;
   padding-top: 15px;
   font-size: larger;
+
+  .value {
+    font-weight: bold;
+  }
 }
 
 #welcome_user {
@@ -70,7 +74,21 @@
 
 #transfer_form {
   font-size: x-large;
-  padding: 0px 30px;
+  padding: 1rem 2rem 2rem 2rem;
+
+  .wrapper {
+    display: inline-block;
+    margin: 0 1rem;
+  }
+
+  #wrapper_last_line {
+    margin: 2rem 0;
+  }
+
+  h2 {
+    font-size: 2.25rem;
+    padding-bottom: 2rem;
+  }
 
   select {
     color: black;

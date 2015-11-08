@@ -24,6 +24,7 @@ class HomeController < ApplicationController
       get_prize_pools
       get_charities
       get_users
+      get_entries
 
       render :show
     end
