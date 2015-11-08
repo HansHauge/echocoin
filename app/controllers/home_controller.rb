@@ -15,7 +15,7 @@ class HomeController < ApplicationController
     get_user
     @entry = Entry.new(entry_params)
 
-    if (@user.balance > @entry.total.to_i) && @entry.save
+    if (@user.balance > (@entry.total.to_i * 1.016)) && @entry.save
       @user.transfer_bitcoins(@entry.recipient, @entry.total)
 
       @new_transaction = true
