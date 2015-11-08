@@ -17,6 +17,24 @@
   padding-left: 10px;
 }
 
+#transfer_instructions {
+  border: 1px solid white;
+  margin: 0 auto;
+  padding: 1rem;
+  max-width: 40%;
+
+  text-align: center;
+
+  * {
+    margin-bottom: 1rem;
+  }
+
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
 #transfer_form {
   background-color: rgba(19, 132, 6, 0.7);
   padding: 0px 30px;

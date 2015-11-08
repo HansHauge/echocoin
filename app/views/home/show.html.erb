@@ -70,4 +70,12 @@
       </div>
     </div>
   </div>
+
+  <% if @new_transfer %>
+    <div id="transfer_instructions">
+      <p>This is where you would scan the QR code below with your bitcoin wallet software to create a bitcoin transaction.</p>
+      <%= image_tag("sample_qr.png") %>
+      <div id="close" class="button">Close</div>
+    </div>
+  <% end %>
 </div>
