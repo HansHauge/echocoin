@@ -18,11 +18,13 @@ class HomeController < ApplicationController
     if (@user.balance > @entry.total) && @entry.save
       @user.balance -= @entry.total
       @user.save
+      @new_transaction = true
       redirect_to '/', notice: 'You sent the loot!'
     else
       get_prize_pools
       get_charities
       get_users
+      @new_transaction = false
 
       render :show
     end
