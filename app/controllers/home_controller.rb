@@ -1,5 +1,4 @@
 class HomeController < ApplicationController
-  before_action :clear_new_transfer_session
   before_action :get_prize_pools, :get_charities, :get_users, :get_entry, :get_entries, only: :show
   before_action :get_user
 
@@ -20,7 +19,7 @@ class HomeController < ApplicationController
       @user.transfer_bitcoins(@entry.recipient, @entry.total, @entry.charity_id)
 
       session[:new_transfer] = true
-      redirect_to '/', notice: 'You sent the loot!'
+      redirect_to '/'
     else
       get_prize_pools
       get_charities
@@ -31,10 +30,6 @@ class HomeController < ApplicationController
   end
 
   private
-
-  def clear_new_transfer_session
-    session[:new_transfer] = false
-  end
 
   def get_entries
     @entries = Entry.where(status: 'won').order('created_at DESC').limit(5)
