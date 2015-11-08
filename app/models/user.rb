@@ -1,8 +1,8 @@
 
 class User < ActiveRecord::Base
-  before_create :initialize_balance
-  after_create  :generate_name
-  after_create  :generate_address
+  after_create :initialize_balance
+  after_create :generate_name
+  after_create :generate_address
 
   validates :name, uniqueness: true
 
@@ -10,14 +10,20 @@ class User < ActiveRecord::Base
     balance
   end
 
+  def transfer_bitcoins(recipient, total)
+    update_attributes!(balance: (self.balance - (total * 1.016)))
+    them = User.where(btc_address: recipient).first
+    them.update_attributes(balance: (them.balance + total))
+  end
+
   private
 
   def initialize_balance
-    self.balance = 5.0
+    update_attributes(balance: 5.0)
   end
 
   def generate_address
-    self.btc_address = BtcAddress.create_with_no_coins("User: #{self.name}")
+    update_attributes!(btc_address: BtcAddress.create_with_no_coins("User: #{name}"))
   end
 
   def generate_name

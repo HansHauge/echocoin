@@ -13,7 +13,7 @@
 
     <div class="col-md-4">
       <div id="transfer_form">
-        <h2>Transfer Bitcoins</h2>
+        <h2>Send Bitcoins</h2>
         <%= form_for @entry, html: {class: "form-horizontal", role: "form"} do |f| %>
           <% if @entry.errors.any? %>
             <div id="error_explanation">
@@ -28,7 +28,7 @@
           <% end %>
           <div class="form-group">
             <%= f.label :recipient %>
-            <%= f.select(:recipient, options_for_select(@users.map(&:name)), class: "form-control") %>
+            <%= f.select(:recipient, options_for_select(@users.map(&:btc_address)), class: "form-control") %>
           </div>
 
           <div class="form-group">
