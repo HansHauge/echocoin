@@ -37,16 +37,17 @@
           </div>
           <%= f.check_box :terms %> <%= link_to 'I accept the terms', terms_path %><br><br>
           <%= f.submit "Send", class: "btn btn-default" %>
-        <% end %>
 
         <h3>Pick a charity</h3>
 
         <% @charities.each do |charity| %>
           <label>
-            <%= radio_button_tag(:charity, charity.name, checked=(charity.name.eql?("Trump for President"))) %>
+            <%#= f.radio_button(:charity, charity.name, checked=(charity.name.eql?("Trump for President"))) %>
+            <%= f.radio_button("charity_id", charity.id) %>
             <%= charity.name %>
           </label>
           <br>
+        <% end %>
         <% end %>
       </div>
     </div>

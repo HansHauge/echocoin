@@ -5,9 +5,9 @@ class Charity < ActiveRecord::Base
     BtcBalance.new(btc_address).amount
   end
 
-private
+  private
 
   def generate_address
-    self.btc_address = BtcAddress.create_with_no_coins
+    self.btc_address = BtcAddress.create_with_no_coins("Charity: #{self.name}")
   end
 end

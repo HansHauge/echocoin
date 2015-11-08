@@ -9,11 +9,14 @@ class HomeController < ApplicationController
   end
 
   def create
+    get_user
     @entry = Entry.new(entry_params)
-    if @entry.save
+
+    if (@user.balance > @entry.total) && @entry.save
+      @user.balance -= @entry.total
+      @user.save
       redirect_to '/', notice: 'You sent the loot!'
     else
-      get_user
       get_prize_pools
       get_charities
       get_users
@@ -49,6 +52,6 @@ class HomeController < ApplicationController
   end
 
   def entry_params
-    params.require(:entry).permit(:recipient, :total, :terms)
+    params.require(:entry).permit(:recipient, :total, :terms, :charity_id)
   end
 end
