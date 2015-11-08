@@ -74,35 +74,63 @@
 
   <% if @new_transfer %>
     <div id="transfer_instructions">
-      <p>This is where you would scan the QR code below with your bitcoin wallet software to create a bitcoin transaction.</p>
-      <%= image_tag("sample_qr.png") %>
-      <div id="close" class="button">Close</div>
+    </div>
+    <div class="echocoin-modal modal fade" id="memberModal" tabindex="-1" role="dialog" aria-labelledby="memberModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="memberModalLabel">Notice</h4>
+          </div>
+
+          <div class="modal-body">
+             <p>This is where you would scan the QR code below with your bitcoin wallet software to create a bitcoin transaction.</p>
+             <p>For this demo, we'll go ahead and enter you into the prize drawing and pretend that's what happened once you click close.</p>
+             <%= image_tag("sample_qr.png") %>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <% if @new_user %>
+    <div class="echocoin-modal modal fade" id="memberModal" tabindex="-1" role="dialog" aria-labelledby="memberModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="memberModalLabel">Welcome new Echocoin user!</h4>
+          </div>
+
+          <div class="modal-body">
+            <p>
+              During the Rails Rumble, this site does not use real bitcoins and is operating in a simulation mode.
+            </p>
+
+            <p>
+              You will be able to simulate sending bitcoin to other users of the site
+              by selecting a bitcoin address from a dropdown menu.
+
+              Therefore, we are assigning you this test bitcoin address for use during judging.
+            </p>
+
+            <div class="bitcoin_address">
+              <%= @user.btc_address %>
+            </div>
+
+            <p>
+              This will display in the upper right as your user id. Other users of the site can send you
+              bitcoin and any prize pools that you win will be paid to this address.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
     </div>
   <% end %>
 </div>
-
-<% if @new_user %>
-  <div id="welcome_user" class="will_be_modal" style="border: 2px solid red; padding: 1rem;">
-    <h1>Welcome new Echocoin user!</h1>
-
-    <p>
-      During the Rails Rumble, this site does not use real bitcoins and is operating in a simulation mode.
-    </p>
-
-    <p>
-      You will be able to simulate sending bitcoin to other users of the site
-      by selecting a bitcoin address from a dropdown menu.
-
-      Therefore, we are assigning you this test bitcoin address for use during judging.
-    </p>
-
-    <div class="bitcoin_address">
-      <%= @user.btc_address %>
-    </div>
-
-    <p>
-      This will display in the upper right as your user id. Other users of the site can send you
-      bitcoin and any prize pools that you win will be paid to this address.
-    </p>
-  </div>
-<% end %>
