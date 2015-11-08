@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  before_action :clear_new_transfer_session
   before_action :get_prize_pools, :get_charities, :get_users, :get_entry, :get_entries, only: :show
   before_action :get_user
 
@@ -24,13 +25,16 @@ class HomeController < ApplicationController
       get_prize_pools
       get_charities
       get_users
-      session[:new_transfer] = false
 
       render :show
     end
   end
 
   private
+
+  def clear_new_transfer_session
+    session[:new_transfer] = false
+  end
 
   def get_entries
     @entries = Entry.where(status: 'won').order('created_at DESC').limit(5)
