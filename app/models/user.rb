@@ -10,10 +10,14 @@ class User < ActiveRecord::Base
     balance
   end
 
-  def transfer_bitcoins(recipient, total)
+  def transfer_bitcoins(recipient, total, charity_id)
     update_attributes!(balance: (self.balance - (total * 1.016)))
     them = User.where(btc_address: recipient).first
     them.update_attributes(balance: (them.balance + total))
+    # binding.pry
+    the_charity = Charity.find(charity_id)
+    the_charity.update_attributes!(balance: (the_charity.balance.to_f + (total * 0.005)))
+    the_charity.update_attributes!(lifetime_contributions: (the_charity.balance.to_f + (total * 0.005)))
   end
 
   private
