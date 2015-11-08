@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <div id="user">Btc Address: <span class="value"><%= @user.btc_address %></span> &nbsp;|&nbsp; Balance: <span class="value"><%= @user.get_balance %></span> <span class="glyphicon glyphicon-bitcoin" /></div>
+      <div id="user">Your Bitcoin Address: <span class="value"><%= @user.btc_address %></span> &nbsp;|&nbsp; Your Balance: <span class="value"><%= @user.get_balance %></span> <span class="glyphicon glyphicon-bitcoin" /></div>
       <div id="transfer_form" class="alert-success">
         <h2>Send Bitcoins, Donate To Charity, Be Entered To Win A Prize</h2>
         <%= form_for @entry, html: {class: "form-inline", role: "form"} do |f| %>
