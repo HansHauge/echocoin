@@ -72,9 +72,7 @@
     </div>
   </div>
 
-  <% if @new_transfer %>
-    <div id="transfer_instructions">
-    </div>
+  <% if session[:new_transfer] %>
     <div class="echocoin-modal modal fade" id="memberModal" tabindex="-1" role="dialog" aria-labelledby="memberModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
