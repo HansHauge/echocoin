@@ -9,15 +9,16 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,900,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
   </head>
 
-  <body>
-    <div id="test_banner">*** You are in Test Mode. No real bitcoins will be sent or received. ***</div>
+  <body class="alert-info">
+    <div id="test_banner" class="progress-bar-danger">
+      *** You are in Test Mode. No real bitcoins will be sent or received. ***
+    </div>
 
     <header>
       <div id="logo">
        <%= link_to '/' do %>
         <span>Echo</span><span>coin</span></div>
       <% end %> - <span>Transactions with a purpose</span>
-      <div id="user">Btc Address: <%= @user.btc_address %> | Balance: <%= @user.get_balance %></div>
     </header>
 
     <div id="content">
