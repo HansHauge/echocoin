@@ -52,6 +52,14 @@
 #transfer_form {
   background-color: rgba(19, 132, 6, 0.7);
   padding: 0px 30px;
+
+  select {
+    color: black;
+  }
+
+  option{
+    color: black;
+  }
 }
 
 ol, ul {
