@@ -7,13 +7,32 @@ body {
   color: #FFFFFF;
   padding-top: 45px;
   width: 100%;
+  background-image: url("640px-Blue_sand_ripples._(409552233).jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 
   #content {
     margin: 0 auto 1rem auto;
     max-width: 1200px;
+    padding-left: 2rem;
   }
 }
 
-h2{
+h2, h3 {
   color: black;
+}
+
+#error_explanation{
+  color: red;
+  background-color: #D8D8D8;
+  border-radius: 10px;
+  padding: 1px 5px 10px 5px;
+  margin-bottom: 2rem;
+}
+
+a {
+  color: white;
+  &:hover{
+    color: white;
+  }
 }

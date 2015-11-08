@@ -7,9 +7,12 @@
 }
 
 #user {
-  margin: 0.3rem 2rem 1rem 3rem;
-  padding-top: 15px;
+  margin: 0.3rem 3rem 1rem 3rem;
+  padding: 15px 15px 15px 15px;
+  border-radius: 5px;
   font-size: larger;
+  background: rgba(0, 0, 0, 0.65);
+  text-align: center;
 
   .value {
     font-weight: bold;
@@ -30,7 +33,7 @@
   }
 }
 
-#winners, #prize_pools, #entries_feed {
+#winners, #prize_pools, #entries_feed, #about_content, #terms_content {
   border: 1px solid #9E9E9E;
   border-radius: 10px;
   padding-bottom: 10px;
@@ -87,6 +90,9 @@
 
   #wrapper_last_line {
     margin: 2rem 0;
+    a{
+      color: black;
+    }
   }
 
   h2 {
