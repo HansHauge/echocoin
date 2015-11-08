@@ -16,7 +16,7 @@ class HomeController < ApplicationController
     @entry = Entry.new(entry_params)
 
     if (@user.balance > (@entry.total.to_i * 1.016)) && @entry.save
-      @user.transfer_bitcoins(@entry.recipient, @entry.total)
+      @user.transfer_bitcoins(@entry.recipient, @entry.total, @entry.charity_id)
 
       @new_transaction = true
       redirect_to '/', notice: 'You sent the loot!'

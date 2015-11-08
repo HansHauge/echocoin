@@ -58,7 +58,7 @@
         <h2>Charity Donations to Date</h2>
         <ol>
           <% @charities.each do |charity| %>
-            <li><%= "#{charity.name} | #{charity.get_balance}" %> BTC</li>
+            <li><%= "#{charity.name} | #{charity.lifetime_contributions}" %> BTC</li>
           <% end %>
         </ol>
 
