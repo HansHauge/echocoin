@@ -42,32 +42,36 @@
   </div>
 
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-4">
       <div id="prize_pools" class="alert-warning">
         <h2>Current Prize Pools</h2>
         <ol>
           <% @prize_pools.each do |prize_pool| %>
             <li>
-              <div class="col-md-6"><%= "#{prize_pool.name}" %></div>
-              <div class="col-md-6"><%="#{prize_pool.total}" %> <span class="glyphicon glyphicon-bitcoin"></span></div>
+              <div xlass="xcol-md-2"><%= "#{prize_pool.name}" %></div>
+              <div class="xcol-md-2"><%="#{number_with_precision(prize_pool.total, precision: 5)}" %> <span class="glyphicon glyphicon-bitcoin"></span></div>
             </li>
           <% end %>
         </ol>
       </div>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-4">
       <div id="entries_feed" class="alert-warning">
-        <h2>Charity Donations to Date</h2>
+        <h2>All Charity Totals</h2>
         <ol>
           <% @charities.each do |charity| %>
             <li>
-              <div class="col-md-6"><%= "#{charity.name}" %></div>
-              <div class="col-md-6"><%= "#{charity.lifetime_contributions}" %> <span class="glyphicon glyphicon-bitcoin"></span></div>
+              <div class="xcol-md-2"><%= "#{charity.name}" %></div>
+              <div class="xcol-md-2"><%= "#{number_with_precision(charity.lifetime_contributions, precision: 5)}" %> <span class="glyphicon glyphicon-bitcoin"></span></div>
             </li>
           <% end %>
         </ol>
+      </div>
+    </div>
 
+    <div class="col-md-4">
+      <div id="winners" class="alert-warning">
         <h2>Latest Winners</h2>
         <ol>
           <% @entries.each do |entry| %>

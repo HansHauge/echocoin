@@ -26,10 +26,23 @@
   }
 }
 
-#prize_pools, #entries_feed {
+#winners, #prize_pools, #entries_feed {
   padding-bottom: 10px;
   padding-left: 10px;
   min-height: 20rem;
+
+  h2 {
+    padding: 1rem 0;
+  }
+
+  ol {
+    li {
+      div {
+        display: inline-block;
+        min-width: 9rem;
+      }
+    }
+  }
 }
 
 #transfer_instructions {
