@@ -47,7 +47,10 @@
         <h2>Current Prize Pools</h2>
         <ol>
           <% @prize_pools.each do |prize_pool| %>
-            <li><%= "#{prize_pool.name} | #{prize_pool.total}" %> <span class="glyphicon glyphicon-bitcoin"></span></li>
+            <li>
+              <div class="col-md-6"><%= "#{prize_pool.name}" %></div>
+              <div class="col-md-6"><%="#{prize_pool.total}" %> <span class="glyphicon glyphicon-bitcoin"></span></div>
+            </li>
           <% end %>
         </ol>
       </div>
@@ -58,7 +61,10 @@
         <h2>Charity Donations to Date</h2>
         <ol>
           <% @charities.each do |charity| %>
-            <li><%= "#{charity.name} | #{charity.lifetime_contributions}" %> <span class="glyphicon glyphicon-bitcoin"></span></li>
+            <li>
+              <div class="col-md-6"><%= "#{charity.name}" %></div>
+              <div class="col-md-6"><%= "#{charity.lifetime_contributions}" %> <span class="glyphicon glyphicon-bitcoin"></span></div>
+            </li>
           <% end %>
         </ol>
 
