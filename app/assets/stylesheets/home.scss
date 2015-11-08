@@ -31,6 +31,8 @@
 }
 
 #winners, #prize_pools, #entries_feed {
+  border: 1px solid #9E9E9E;
+  border-radius: 10px;
   padding-bottom: 10px;
   padding-left: 10px;
   min-height: 20rem;
@@ -73,6 +75,8 @@
 }
 
 #transfer_form {
+  border: 1px solid #9E9E9E;
+  border-radius: 10px;
   font-size: x-large;
   padding: 1rem 2rem 2rem 2rem;
 

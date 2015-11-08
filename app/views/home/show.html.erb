@@ -19,7 +19,7 @@
 
           <div class="wrapper xform-group xtext-center">
             <%= f.label :recipient %>:
-            <%= f.select(:recipient, options_for_select(@users.map(&:btc_address)), class: "form-control") %>
+            <%= f.select :recipient, options_for_select(@users.map(&:btc_address)), {}, {class: "form-control"} %>
           </div>
 
           <div class="wrapper xform-group xtext-center">
@@ -29,8 +29,8 @@
           </div>
 
           <div class="wrapper xform-group xtext-center">
-            <%= f.label :charity_id, 'Charity' %>:
-            <%= f.select(:charity_id, options_for_select(@charities.map(&:name)), class: "form-control") %>
+            <%= f.label :charity_id, 'Charity: ' %>
+            <%= f.select :charity_id, options_for_select(@charities.map{|m| [m.name, m.id]}), {}, {class: "form-control"} %>
           </div>
 
           <div id="wrapper_last_line" class="form-group text-center">
@@ -42,9 +42,11 @@
     </div>
   </div>
 
+  <br>
+
   <div class="row">
     <div class="col-md-4">
-      <div id="prize_pools" class="alert-warning">
+      <div id="prize_pools" class="alert-warning border-radius">
         <h2>Current Prize Pools</h2>
         <ol>
           <% @prize_pools.each do |prize_pool| %>
