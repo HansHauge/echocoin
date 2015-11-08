@@ -13,6 +13,7 @@ class PayBiWeeklyPrizeJob < ActiveJob::Base
       winning_user = User.where(btc_address: winning_entry.sender).first
       winning_user.update_attributes!(balance: (winning_user.balance + total_to_pay))
       puts "Bi-weekly prize winner: #{winning_entry.sender} who just won #{total_to_pay} BTC!"
+      winning_entry.update_attributes!(status: 'won')
     end
   end
 end

@@ -64,8 +64,8 @@
 
         <h2>Latest Winners</h2>
         <ol>
-          <% @users.each do |user| %>
-            <li><%= user.name %></li>
+          <% @entries.each do |entry| %>
+            <li><%= entry.sender %></li>
           <% end %>
         </ol>
       </div>

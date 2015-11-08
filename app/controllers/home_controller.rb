@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_action :get_prize_pools, :get_charities, :get_users, :get_entry, only: :show
+  before_action :get_prize_pools, :get_charities, :get_users, :get_entry, :get_entries, only: :show
   before_action :get_user
 
   def terms
@@ -31,6 +31,10 @@ class HomeController < ApplicationController
   end
 
   private
+
+  def get_entries
+    @entries = Entry.where(status: 'won').order('created_at DESC').limit(5)
+  end
 
   def get_entry
     @entry = Entry.new
