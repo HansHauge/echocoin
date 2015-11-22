@@ -8,7 +8,8 @@ line inside
     btc_remote.rb 
 to your local machine.
 
-Start your local bitcoid using `bitcoind -regtest -printtoconsole`
+Start your local bitcoid using 
+    bitcoind -regtest -printtoconsole
 
 * Tests
 
