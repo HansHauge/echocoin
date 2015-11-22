@@ -1,28 +1,13 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Local development
 
-Things you may want to cover:
+Switch the `RPC::JSON::Client.new` line inside `btc_remote` to your local machine.
 
-* Ruby version
+Start your local bitcoid using `bitcoind -regtest -printtoconsole`
 
-* System dependencies
+* Tests
 
-* Configuration
+For the time being you will have to have your local bitcoin running or the tests will fail.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+`bundle exec rspec`
