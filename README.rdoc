@@ -2,7 +2,11 @@
 
 * Local development
 
-Switch the `RPC::JSON::Client.new` line inside `btc_remote` to your local machine.
+Switch the
+    RPC::JSON::Client.new 
+line inside    
+    btc_remote.rb 
+to your local machine.
 
 Start your local bitcoid using `bitcoind -regtest -printtoconsole`
 
@@ -10,4 +14,4 @@ Start your local bitcoid using `bitcoind -regtest -printtoconsole`
 
 For the time being you will have to have your local bitcoin running or the tests will fail.
 
-`bundle exec rspec`
+    bundle exec rspec
