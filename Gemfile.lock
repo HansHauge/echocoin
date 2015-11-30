@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/lian/bitcoin-ruby
+  revision: e86034702bd4eff839c25fc4331c9c545e891134
+  branch: master
+  specs:
+    bitcoin-ruby (0.0.8)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -185,6 +192,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bitcoin-ruby!
   bootstrap-sass (~> 3.3.5)
   byebug
   coffee-rails (~> 4.1.0)
