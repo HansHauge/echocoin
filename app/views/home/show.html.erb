@@ -1,8 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <div id="user">Your Bitcoin Address: <span class="value"><%= @user.btc_address %></span> &nbsp;|&nbsp; Your Balance: <span class="value"><%= @user.get_balance %></span> <span class="glyphicon glyphicon-bitcoin" /></div>
-      <div id="transfer_form" class="alert-info">
+      <div id="transfer_form" class="">
         <h2>Send Bitcoins, Donate To Charity, Be Entered To Win A Prize</h2>
         <%= form_for @entry, html: {class: "form-inline", role: "form"} do |f| %>
           <% if @entry.errors.any? %>
@@ -46,7 +45,7 @@
 
   <div class="row">
     <div class="col-md-4">
-      <div id="prize_pools" class="alert-warning border-radius">
+      <div id="prize_pools" class=" border-radius">
         <h2>Current Prize Pools</h2>
         <ol>
           <% @prize_pools.each do |prize_pool| %>
@@ -60,7 +59,7 @@
     </div>
 
     <div class="col-md-4">
-      <div id="entries_feed" class="alert-warning">
+      <div id="entries_feed" class="">
         <h2>All Charity Totals</h2>
         <ol>
           <% @charities.each do |charity| %>
@@ -74,7 +73,7 @@
     </div>
 
     <div class="col-md-4">
-      <div id="winners" class="alert-warning">
+      <div id="winners" class="">
         <h2>Latest Winners</h2>
         <ol>
           <% @entries.each do |entry| %>

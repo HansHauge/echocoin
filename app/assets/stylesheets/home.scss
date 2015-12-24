@@ -7,12 +7,11 @@
 }
 
 #user {
-  margin: 0.3rem 3rem 1rem 3rem;
-  padding: 15px 15px 15px 15px;
-  border-radius: 5px;
   font-size: larger;
-  background: rgba(0, 0, 0, 0.65);
+  border: 1px solid #000000;
+  background-color: #D0D0D0;
   text-align: center;
+  margin-bottom: 20px;
 
   .value {
     font-weight: bold;
@@ -34,7 +33,8 @@
 }
 
 #winners, #prize_pools, #entries_feed, #about_content, #terms_content {
-  border: 1px solid #9E9E9E;
+  background-color: #D0D0D0;
+  border: 1px solid #000000;
   border-radius: 10px;
   padding-bottom: 10px;
   padding-left: 10px;
@@ -82,7 +82,8 @@
 }
 
 #transfer_form {
-  border: 1px solid #9E9E9E;
+  border: 1px solid #000000;
+  background-color: #D0D0D0;
   border-radius: 10px;
   font-size: x-large;
   padding: 1rem 2rem 2rem 2rem;

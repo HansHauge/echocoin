@@ -23,6 +23,9 @@
         <span>Echo</span><span>coin</span></div>
       <% end %> - <span>Transactions with a purpose</span>
     </header>
+    <div id="user">
+      Your Bitcoin Address: <span class="value"><%= @user.btc_address %></span> &nbsp;|&nbsp; Your Balance: <span class="value"><%= @user.get_balance %></span> <span class="glyphicon glyphicon-bitcoin" />
+    </div>
 
     <div id="content">
       <%= yield %>
