@@ -6,12 +6,15 @@
   color: white;
 }
 
+.row {
+  margin: 15px 0px;
+}
+
 #user {
   font-size: larger;
   border: 1px solid #000000;
   background-color: #D0D0D0;
   text-align: center;
-  margin-bottom: 20px;
 
   .value {
     font-weight: bold;
@@ -32,10 +35,20 @@
   }
 }
 
+#entries_feed {
+  background: linear-gradient(#364935, white);
+}
+
+#winners {
+  background: linear-gradient(#F7931A, white);
+}
+
+#prize_pools {
+  background: linear-gradient(#B67A23, white);
+}
+
 #winners, #prize_pools, #entries_feed, #about_content, #terms_content {
-  background-color: #D0D0D0;
   border: 1px solid #000000;
-  border-radius: 10px;
   padding-bottom: 10px;
   padding-left: 10px;
   min-height: 20rem;
@@ -83,8 +96,7 @@
 
 #transfer_form {
   border: 1px solid #000000;
-  background-color: #D0D0D0;
-  border-radius: 10px;
+  background: linear-gradient(#76612C, white);
   font-size: x-large;
   padding: 1rem 2rem 2rem 2rem;
 

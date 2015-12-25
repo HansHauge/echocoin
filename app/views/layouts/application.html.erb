@@ -27,9 +27,7 @@
       Your Bitcoin Address: <span class="value"><%= @user.btc_address %></span> &nbsp;|&nbsp; Your Balance: <span class="value"><%= @user.get_balance %></span> <span class="glyphicon glyphicon-bitcoin" />
     </div>
 
-    <div id="content">
-      <%= yield %>
-    </div>
+    <%= yield %>
 
     <footer>
       <span id="copyright">Copyright &copy;<%= Time.now.year %> A SHA in the Dark, LLC</span>
