@@ -10,6 +10,19 @@
   margin: 15px 0px;
 }
 
+.form-control {
+  width: 340px;
+}
+
+input#entry_total {
+  position: relative;
+  overflow: hidden;
+}
+
+.glyphicon-arrow-right.btn-lg {
+  font-size: 66px;
+}
+
 #prize-pool-banner {
   font-size: larger;
   border: 1px solid #000000;
@@ -55,6 +68,7 @@
   min-height: 300px;
   border-radius: 5px;
   max-width: 700px;
+  border: 2px solid #364935;
 }
 
 .item {
@@ -146,15 +160,19 @@
   font-size: x-large;
   padding: 15px 0px;
 
+  h2 {
+    color: white;
+  }
+
   .wrapper {
     display: inline-block;
     margin: 0 1rem;
   }
 
   #wrapper_last_line {
-    margin: 2rem 0;
-    a{
-      color: black;
+    margin: 1rem 0rem;
+    a {
+      color: white;
     }
   }
 
