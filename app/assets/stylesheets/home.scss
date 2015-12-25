@@ -10,7 +10,7 @@
   margin: 15px 0px;
 }
 
-#user {
+#prize-pool-banner {
   font-size: larger;
   border: 1px solid #000000;
   background-color: #D0D0D0;
@@ -18,6 +18,16 @@
 
   .value {
     font-weight: bold;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      display: inline-block;
+    }
   }
 }
 
@@ -36,7 +46,7 @@
 }
 
 #entries_feed {
-  background: linear-gradient(#364935, white);
+  background: linear-gradient(#76612C, white);
   text-align: center;
 }
 
@@ -116,11 +126,25 @@
   width: 100% !important;
 }
 
+.transfer-left, .transfer-right {
+  display: inline-block;
+  width: 500px;
+  overflow: hidden;
+}
+
+.transfer-left {
+  margin-right: 15px;
+}
+
+.double-transfer-boundary {
+  text-align: center;
+}
+
 #transfer_form {
   border: 1px solid #000000;
-  background: linear-gradient(#76612C, white);
+  background: linear-gradient(#364935, white);
   font-size: x-large;
-  padding: 0;
+  padding: 15px 0px;
 
   .wrapper {
     display: inline-block;

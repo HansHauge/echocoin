@@ -30,8 +30,16 @@
       <div id="btc-quote"></div>
 
     </header>
-    <div id="user">
-      Your Bitcoin Address: <span class="value"><%= @user.btc_address %></span> &nbsp;|&nbsp; Your Balance: <span class="value"><%= @user.get_balance %></span> <span class="glyphicon glyphicon-bitcoin" />
+    <div id="prize-pool-banner">
+      Prize Pools<br>
+      <ul>
+        <% @prize_pools.each_with_index do |prize_pool, index| %>
+          <li>
+            <%= "| " unless index == 0 %>
+            <%= " #{prize_pool.name} #{number_with_precision(prize_pool.total, precision: 5)}" %> <span class="glyphicon glyphicon-bitcoin"></span>
+          </li>
+        <% end %>
+      </ul>
     </div>
 
     <%= yield %>
