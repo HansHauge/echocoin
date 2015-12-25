@@ -37,6 +37,28 @@
 
 #entries_feed {
   background: linear-gradient(#364935, white);
+  text-align: center;
+}
+
+.item-container {
+  background-color: rgba(0, 0, 0, 0.5);
+  min-height: 300px;
+  border-radius: 5px;
+  max-width: 700px;
+}
+
+.item {
+  background-color: #D0D0D0;
+  min-height: 300px;
+  border-radius: 5px;
+
+  img {
+    padding: 50px;
+  }
+}
+
+.carousel-control.right, .carousel-control.left {
+  background-image: none;
 }
 
 #winners {
@@ -98,7 +120,7 @@
   border: 1px solid #000000;
   background: linear-gradient(#76612C, white);
   font-size: x-large;
-  padding: 1rem 2rem 2rem 2rem;
+  padding: 0;
 
   .wrapper {
     display: inline-block;

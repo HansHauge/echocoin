@@ -9,16 +9,17 @@ header {
   #logo {
     display: inline-block;
 
-    span:first-child {
+    span {
       font-family: 'Roboto', sans-serif;
-      font-size: 3rem;
-    }
-
-    span:nth-child(2) {
-      font-family: 'Poiret One', cursive;
-      font-size: 3rem;
+      font-size: 1.25rem;
+      display: inline-block;
+      position: relative;
+      top: 3px;
     }
   }
+
+  #btc-quote {
+    float: right;
+    margin-top: 4px;
+  }
 }
-
-
