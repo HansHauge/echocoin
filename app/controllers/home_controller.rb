@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_action :get_prize_pools, :get_charities, :get_users, :get_entry, :get_entries, only: :show
+  before_action :get_prize_pools, :get_charities, :get_users, :get_entry, :get_entries
   before_action :get_user
 
   def terms

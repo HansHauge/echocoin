@@ -5,4 +5,8 @@ Rails.application.routes.draw do
   get '/about' => 'home#about'
   post '/' => 'home#create', as: 'entries'
   get '/prize/jackpot' => 'prize#jackpot'
+
+  namespace :api do
+    get 'address/:btc_address/balance' => 'block_explorer#check_balance'
+  end
 end
