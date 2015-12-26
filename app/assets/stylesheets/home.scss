@@ -6,6 +6,30 @@
   color: white;
 }
 
+.fancy-border-box {
+  box-shadow: 0 -25px 30px rgba(0, 0, 0, 0.05) inset, 0 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.07) inset;
+  border-radius: 4px;
+  margin: -15px 5px 0px 5px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.transfer-right {
+  .fancy-border-box {
+    padding-bottom: 33px;
+  }
+}
+
+#myCarousel {
+  border: 2px solid #76612C;
+  border-radius: 4px;
+
+  .fancy-border-box {
+    height: 300px;
+    margin: 0px auto;
+    border-radius: 0;
+  }
+}
+
 .row {
   margin: 15px 0px;
 }
@@ -64,8 +88,8 @@ input#entry_total {
 }
 
 .item-container {
-  background-color: rgba(0, 0, 0, 0.5);
-  min-height: 300px;
+  background-color: rgba(0, 0, 0, 0.6);
+  min-height: 278px;
   border-radius: 5px;
   max-width: 700px;
   border: 2px solid #364935;
@@ -76,8 +100,15 @@ input#entry_total {
   min-height: 300px;
   border-radius: 5px;
 
-  img {
-    padding: 50px;
+  .contribution-banner {
+    display: inline-block;
+    position: absolute;
+    width: 100%;
+    background-color: white;
+    color: black;
+    bottom: 0px;
+    left: 0;
+    border-top: 1px solid #76612C;
   }
 }
 
@@ -173,12 +204,14 @@ input#entry_total {
     margin: 1rem 0rem;
     a {
       color: white;
+      font-size: 16px;
     }
   }
 
   h2 {
     font-size: 2.25rem;
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
+    padding-top: 15px;
   }
 
   select {
