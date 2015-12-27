@@ -11,7 +11,10 @@ PrizePool.where(name: "Daily", payout_frequency: 3600*24).first_or_create
 PrizePool.where(name: "Weekly", payout_frequency: 3600*24*7).first_or_create
 PrizePool.where(name: "Bi-weekly", payout_frequency: 3600*24*7*2).first_or_create
 
-Charity.where(name: "Whirled Peas").first_or_create
-Charity.where(name: "Blue Circle").first_or_create
-Charity.where(name: "Shave the Whales").first_or_create
-Charity.where(name: "Trump for President").first_or_create
+Charity.where(name: "Electronic Frontier Foundation").first_or_create
+Charity.where(name: "American Red Cross").first_or_create
+Charity.where(name: "World Food Program").first_or_create
+Charity.where(name: "Unicef").first_or_create
+Charity.where(name: "The Humane Society").first_or_create
+Charity.where(name: "Wounded Warrior Project").first_or_create
+Charity.where(name: "Doctors Without Borders").first_or_create
