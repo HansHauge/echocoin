@@ -13,23 +13,36 @@
         $(".echocoin-modal").modal('show');
       });
     </script>
+
+    <script type="text/javascript" src="//cdn-gh.firebase.com/btcquote/embed.js"></script>
+
   </head>
 
   <body>
 
     <header>
       <div id="logo">
-       <%= link_to '/' do %>
-        <span>Echo</span><span>coin</span></div>
-      <% end %> - <span>Transactions with a purpose</span>
+        <%= link_to root_path do %>
+          <%= image_tag 'echocoin-logo-gray-left.png' %>
+        <% end %>
+      </div>
+
+      <div id="btc-quote"></div>
+
     </header>
-    <div id="user">
-      Your Bitcoin Address: <span class="value"><%= @user.btc_address %></span> &nbsp;|&nbsp; Your Balance: <span class="value"><%= @user.get_balance %></span> <span class="glyphicon glyphicon-bitcoin" />
+    <div id="prize-pool-banner">
+      <div class='prize-pools-tab'>Prize Pools</div>
+      <ul>
+        <% @prize_pools.each_with_index do |prize_pool, index| %>
+          <li>
+            <%= "| " unless index == 0 %>
+            <%= " #{prize_pool.name} #{number_with_precision(prize_pool.total, precision: 5)}" %> <span class="glyphicon glyphicon-bitcoin"></span>
+          </li>
+        <% end %>
+      </ul>
     </div>
 
-    <div id="content">
-      <%= yield %>
-    </div>
+    <%= yield %>
 
     <footer>
       <span id="copyright">Copyright &copy;<%= Time.now.year %> A SHA in the Dark, LLC</span>

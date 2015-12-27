@@ -1,147 +1,79 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <div id="transfer_form" class="">
-        <h2>Send Bitcoins, Donate To Charity, Be Entered To Win A Prize</h2>
-        <%= form_for @entry, html: {class: "form-inline", role: "form"} do |f| %>
-          <% if @entry.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= pluralize(@entry.errors.count, "error") %> prohibited this entry from being saved:</h2>
-
-              <ul>
-              <% @entry.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-              <% end %>
-              </ul>
-            </div>
-          <% end %>
-
-          <div class="wrapper">
-            <%= f.label :recipient %>:
-            <%= f.select :recipient, options_for_select(@users.map(&:btc_address)), {}, {class: "form-control"} %>
-          </div>
-
-          <div class="wrapper">
-            <%= f.label :total %>:
-            <%= f.number_field :total, min: 0.00, step: 0.00001, class: "form-control", placeholder: 'Total BTC' %>
-            <%= f.hidden_field :sender, value: @user.btc_address %>
-          </div>
-
-          <div class="wrapper">
-            <%= f.label :charity_id, 'Charity: ' %>
-            <%= f.select :charity_id, options_for_select(@charities.map{|m| [m.name, m.id]}), {}, {class: "form-control"} %>
-          </div>
-
-          <div id="wrapper_last_line" class="form-group text-center">
-            <%= f.check_box :terms %> <%= link_to 'I accept the terms', terms_path %>
-            <%= f.submit "Send", class: "btn btn-success btn-lg" %>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-
-  <br>
-
-  <div class="row">
-    <div class="col-md-4">
-      <div id="prize_pools" class=" border-radius">
-        <h2>Current Prize Pools</h2>
-        <ol>
-          <% @prize_pools.each do |prize_pool| %>
-            <li>
-              <div xlass="xcol-md-2"><%= "#{prize_pool.name}" %></div>
-              <div class="xcol-md-2"><%="#{number_with_precision(prize_pool.total, precision: 5)}" %> <span class="glyphicon glyphicon-bitcoin"></span></div>
-            </li>
-          <% end %>
-        </ol>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div id="entries_feed" class="">
-        <h2>All Charity Totals</h2>
-        <ol>
-          <% @charities.each do |charity| %>
-            <li>
-              <div class="xcol-md-2"><%= "#{charity.name}" %></div>
-              <div class="xcol-md-2"><%= "#{number_with_precision(charity.lifetime_contributions, precision: 5)}" %> <span class="glyphicon glyphicon-bitcoin"></span></div>
-            </li>
-          <% end %>
-        </ol>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div id="winners" class="">
-        <h2>Latest Winners</h2>
-        <ol>
-          <% @entries.each do |entry| %>
-            <li><%= entry.sender %></li>
-          <% end %>
-        </ol>
-      </div>
-    </div>
-  </div>
-
-  <% if session[:new_transfer] %>
-    <% session.delete :new_transfer %>
-    <div class="echocoin-modal modal fade" id="memberModal" tabindex="-1" role="dialog" aria-labelledby="memberModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div style="background-color: #999;" class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="memberModalLabel">Notice</h4>
-          </div>
-
-          <div class="modal-body">
-             <p>This is where you would scan the QR code below with your bitcoin wallet software to create a bitcoin transaction.</p>
-             <p>For this demo, we'll go ahead and enter you into the prize drawing and pretend that's what happened once you click close.</p>
-             <%= image_tag("sample_qr.png") %>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  <% end %>
-
-  <% if @new_user %>
-    <div class="echocoin-modal modal fade" id="memberModal" tabindex="-1" role="dialog" aria-labelledby="memberModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div style="background-color: #999;" class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="memberModalLabel">Welcome new Echocoin user!</h4>
-          </div>
-
-          <div class="modal-body">
-            <p>
-              During the Rails Rumble, this site does not use real bitcoins and is operating in a simulation mode.
-            </p>
-
-            <p>
-              You will be able to simulate sending bitcoin to other users of the site
-              by selecting a bitcoin address from a dropdown menu.
-
-              Therefore, we are assigning you this test bitcoin address for use during judging.
-            </p>
-
-            <div class="bitcoin_address">
-              <%= @user.btc_address %>
-            </div>
-
-            <p>
-              This will display in the upper right as your user id. Other users of the site can send you
-              bitcoin and any prize pools that you win will be paid to this address.
-            </p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  <% end %>
+<div id="transfer_form">
+  <%= render 'transfer_form' %>
 </div>
+
+<div id="entries_feed">
+  <%= render 'slideshow' %>
+</div>
+
+<div id="winners" class="">
+  <div class='item-container center-block'>
+    <h2>Latest Winners</h2>
+    <ol>
+      <% @entries.each do |entry| %>
+        <li><%= entry.sender %></li>
+      <% end %>
+    </ol>
+  </div>
+</div>
+
+<% if session[:new_transfer] %>
+  <% session.delete :new_transfer %>
+  <div class="echocoin-modal modal fade" id="memberModal" tabindex="-1" role="dialog" aria-labelledby="memberModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div style="background-color: #999;" class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="memberModalLabel">Notice</h4>
+        </div>
+
+        <div class="modal-body">
+           <p>This is where you would scan the QR code below with your bitcoin wallet software to create a bitcoin transaction.</p>
+           <p>For this demo, we'll go ahead and enter you into the prize drawing and pretend that's what happened once you click close.</p>
+           <%= image_tag("sample_qr.png") %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<% if @new_user %>
+  <div class="echocoin-modal modal fade" id="memberModal" tabindex="-1" role="dialog" aria-labelledby="memberModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div style="background-color: #999;" class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="memberModalLabel">Welcome new Echocoin user!</h4>
+        </div>
+
+        <div class="modal-body">
+          <p>
+            During the Rails Rumble, this site does not use real bitcoins and is operating in a simulation mode.
+          </p>
+
+          <p>
+            You will be able to simulate sending bitcoin to other users of the site
+            by selecting a bitcoin address from a dropdown menu.
+
+            Therefore, we are assigning you this test bitcoin address for use during judging.
+          </p>
+
+          <div class="bitcoin_address">
+            <%= @user.btc_address %>
+          </div>
+
+          <p>
+            This will display in the upper right as your user id. Other users of the site can send you
+            bitcoin and any prize pools that you win will be paid to this address.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
